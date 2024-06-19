@@ -35,4 +35,4 @@ jobs:
       #      - name: Log in to registry
       #        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: Publish package
-        run: mvn -Drepo.login=${{ github.actor }} -Drepo.pwd=${{ secrets.GITHUB_TOKEN }} -s ./.m2/local-settings.xml deploy
+        run: mvn -Dgithub.actor=${{ github.actor }} -Dsecrets.GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} -s ./.m2/local-settings.xml deploy
